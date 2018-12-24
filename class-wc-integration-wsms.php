@@ -387,7 +387,7 @@ if ( ! class_exists( 'WC_Integration_WSMS' ) ) :
 				$list_id = $this->get_field( 'mailchimp_list' );
 			}
 
-			$user_email = wp_get_current_user()->user_email;
+			$user_email = strtolower( wp_get_current_user()->user_email );
 			$email_hash = md5( $user_email );
 
 			$fields = $this->get_mailchimp( 'lists', $list_id, 'members', $email_hash );
